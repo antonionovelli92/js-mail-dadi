@@ -60,10 +60,18 @@ const mailUser = document.getElementById('email')
 const button = document.getElementById('btn-invia')
 
 button.addEventListener = ('click', function () {
+    // prendo la mail data dall'utente
+
     const myMail = mailUser.value;
-    let result = 'bbb';
-    if (myMail = emailValid) {
-        result = "L'email inserita non è presente nella lista";
+    // creo una costante di verifica (array)
+    const emailVerify = emailValid[myEamil]
+    let result = '';
+
+    if (myMail = emailVerify) {
+        result = "L'email inserita è presente nella lista";
+    } else {
+        result = "L'email è sbagliata! Riprova!"
     }
     console.log(result)
+
 })
