@@ -54,24 +54,37 @@ L'esito del controllo deve essere stampato in pagina
 
 // lista mail autorizzate
 const emailValid = ['anto.anto@gmail.com', 'pippo.pluto@hotmail.it', 'gino.deigiggi@yahoo.it'];
-console.table(emailValid)
+// console.table(emailValid)
 
-const mailUser = document.getElementById('email')
-const button = document.getElementById('btn-invia')
+const mailUser = document.getElementById('email');
+const button = document.getElementById('btn-invia');
 
 button.addEventListener = ('click', function () {
+
     // prendo la mail data dall'utente
-
     const myMail = mailUser.value;
-    // creo una costante di verifica (array)
-    const emailVerify = emailValid[myEamil]
-    let result = '';
+    console.log(myMail);
 
-    if (myMail = emailVerify) {
-        result = "L'email inserita è presente nella lista";
-    } else {
-        result = "L'email è sbagliata! Riprova!"
+    for (let i = 0; i < emailValid.lenght; i++) {
+        console.log(emailValid[i])
+        let result = '';
+        if (myMail = emailValid) {
+            result = 'La registrazione è andata a buon fine';
+        } else {
+            result = 'Riprova con un altro indirizzo';
+        }
+        console.log(result);
     }
-    console.log(emailVerify)
 
 })
+
+// // creo una costante di verifica (array)
+// const emailVerify = emailValid[myEamil]
+// let result = '';
+
+// if (myMail = emailVerify) {
+//     result = "L'email inserita è presente nella lista";
+// } else {
+//     result = "L'email è sbagliata! Riprova!"
+// }
+// console.log(emailVerify)
