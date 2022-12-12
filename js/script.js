@@ -31,8 +31,27 @@ Stampiamo in pagina i due tiri e il risultato
 -----------------------------------------------------------------
 */
 
+const dadi = document.getElementById('dadi')
 // Genero numeri randomici per l'utente e per il computer:
-let numberUser = Math.floor(Math.random() * 6) + 1;
-console.log(numberUser)
-let numberCpu = Math.floor(Math.random() * 6) + 1;
-console.log(numberUser)
+const numberUser = Math.floor(Math.random() * 6) + 1;
+console.log('User ' + numberUser)
+const numberCpu = Math.floor(Math.random() * 6) + 1;
+console.log('Cpu ' + numberCpu)
+
+// Stabilizzo chi dei due è il vincitore
+let result = 'tie'
+if (numberUser > numberCpu) {
+    result = 'user win'
+    console.log('user win')
+} else if (numberCpu > numberUser) {
+    result = 'cpu win'
+    console.log('cpu win')
+}
+
+const match = `${numberCpu} + ${numberUser} = ${result}`
+
+// stampo su dom
+
+dadi.innerHTML = match;
+
+
