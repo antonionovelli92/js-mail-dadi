@@ -22,3 +22,17 @@ La mail dell'utente va raccolta tramite input  e con l'aiuto di un button , non 
 L'esito del controllo deve essere stampato in pagina
 -----------------------------------------------------------------
 */
+
+/* ESERCIZIO 1 - 
+Gioco dei dadi
+Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
+Stabilire il vincitore, in base a chi fa il punteggio più alto.
+Stampiamo in pagina i due tiri e il risultato
+-----------------------------------------------------------------
+*/
+
+// Genero numeri randomici per l'utente e per il computer:
+let numberUser = Math.floor(Math.random() * 6) + 1;
+console.log(numberUser)
+let numberCpu = Math.floor(Math.random() * 6) + 1;
+console.log(numberUser)
