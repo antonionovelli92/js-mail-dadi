@@ -72,6 +72,6 @@ button.addEventListener = ('click', function () {
     } else {
         result = "L'email è sbagliata! Riprova!"
     }
-    console.log(result)
+    console.log(emailVerify)
 
 })
