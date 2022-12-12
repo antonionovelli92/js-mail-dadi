@@ -57,23 +57,28 @@ const emailValid = ['anto.anto@gmail.com', 'pippo.pluto@hotmail.it', 'gino.deigi
 // console.table(emailValid)
 
 const mailUser = document.getElementById('email');
-const button = document.getElementById('btn-invia');
+const button = document.getElementById('btn');
 
 button.addEventListener = ('click', function () {
 
     // prendo la mail data dall'utente
-    const myMail = mailUser.value;
-    console.log(myMail);
 
-    for (let i = 0; i < emailValid.lenght; i++) {
-        console.log(emailValid[i])
+    for (let i = 0; i < emailValid.length; i++) {
+        console.table(emailValid[i]);
+
+        const myMail = mailUser.value;
+        console.log(myMail);
+
         let result = '';
-        if (myMail = emailValid) {
+        if (myMail = emailValid[0]) {
             result = 'La registrazione è andata a buon fine';
+            console.log(result);
+
         } else {
             result = 'Riprova con un altro indirizzo';
+            console.log(result);
+
         }
-        console.log(result);
     }
 
 })
