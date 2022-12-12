@@ -1,12 +1,41 @@
-/* 
-Ciao ragazzi,
-esercizio di oggi: Gioco dei dadi e Finta Login
-Nome repo: js-mail-dadi
-Potete svolgere entrambi gli esercizi in un unico file HTML e JS. Se la cosa vi confonde separateli, purché siano sulla stessa repo.
-ESERCIZIO 1 - Gioco dei dadi
+
+/* ESERCIZIO 1 - 
+Gioco dei dadi
 Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
 Stabilire il vincitore, in base a chi fa il punteggio più alto.
 Stampiamo in pagina i due tiri e il risultato
+-----------------------------------------------------------------
+*/
+
+// Elementi dom
+const dadi = document.getElementById('dadi')
+
+
+// Genero numeri randomici per l'utente e per il computer:
+
+const numberUser = Math.floor(Math.random() * 6) + 1;
+//! console.log('User ' + numberUser)
+const numberCpu = Math.floor(Math.random() * 6) + 1;
+//! console.log('Cpu ' + numberCpu)
+
+// Stabilizzo chi dei due è il vincitore
+let result = 'tie'
+if (numberUser > numberCpu) {
+    result = 'user win'
+    //! console.log('user win')
+} else if (numberCpu > numberUser) {
+    result = 'cpu win'
+    //! console.log('cpu win')
+}
+
+const match = `${numberCpu} + ${numberUser} = ${result}`
+
+// stampo su dom
+
+dadi.innerHTML = match;
+
+
+/*
 -----------------------------------------------------------------
 ESERCIZIO 2 - Finta Login
 Inventa una lista di email autorizzate
@@ -23,35 +52,18 @@ L'esito del controllo deve essere stampato in pagina
 -----------------------------------------------------------------
 */
 
-/* ESERCIZIO 1 - 
-Gioco dei dadi
-Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
-Stabilire il vincitore, in base a chi fa il punteggio più alto.
-Stampiamo in pagina i due tiri e il risultato
------------------------------------------------------------------
-*/
+// lista mail autorizzate
+const emailValid = ['anto.anto@gmail.com', 'pippo.pluto@hotmail.it', 'gino.deigiggi@yahoo.it'];
+console.table(emailValid)
 
-const dadi = document.getElementById('dadi')
-// Genero numeri randomici per l'utente e per il computer:
-const numberUser = Math.floor(Math.random() * 6) + 1;
-console.log('User ' + numberUser)
-const numberCpu = Math.floor(Math.random() * 6) + 1;
-console.log('Cpu ' + numberCpu)
+const mailUser = document.getElementById('email')
+const button = document.getElementById('btn-invia')
 
-// Stabilizzo chi dei due è il vincitore
-let result = 'tie'
-if (numberUser > numberCpu) {
-    result = 'user win'
-    console.log('user win')
-} else if (numberCpu > numberUser) {
-    result = 'cpu win'
-    console.log('cpu win')
-}
-
-const match = `${numberCpu} + ${numberUser} = ${result}`
-
-// stampo su dom
-
-dadi.innerHTML = match;
-
-
+button.addEventListener = ('click', function () {
+    const myMail = mailUser.value;
+    let result = 'bbb';
+    if (myMail = emailValid) {
+        result = "L'email inserita non è presente nella lista";
+    }
+    console.log(result)
+})
