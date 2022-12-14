@@ -21,18 +21,21 @@ const numberCpu = Math.floor(Math.random() * 6) + 1;
 // Stabilizzo chi dei due è il vincitore
 let result = 'tie'
 if (numberUser > numberCpu) {
-    result = 'user win'
+    result = 'user win';
     //! console.log('user win')
 } else if (numberCpu > numberUser) {
-    result = 'cpu win'
+    result = 'cpu win';
     //! console.log('cpu win')
 }
 
-const match = `${numberCpu} + ${numberUser} = ${result}`
+dadi.innerHTML = `
+<div> Tiro del giocatore: <img src= "img/${numberUser}.png"> </div>
+<div> Tiro del computer: <img src= "img/${numberCpu}.png"> </div>
+<h3> ${result} </h3>
+`;
+console.log(dadi)
 
-// stampo su dom
 
-dadi.innerHTML = match;
 
 
 /*
@@ -53,43 +56,39 @@ L'esito del controllo deve essere stampato in pagina
 */
 
 // lista mail autorizzate
-const emailValid = ['anto.anto@gmail.com', 'pippo.pluto@hotmail.it', 'gino.deigiggi@yahoo.it'];
-// console.table(emailValid)
+const allowedEmails = [
+    'anto.anto@gmail.com',
+    'pippo.pluto@hotmail.it',
+    'gino.deigiggi@yahoo.it'];
 
-const mailUser = document.getElementById('email');
-const button = document.getElementById('btn');
+// Recupero gli elementi della dalla pagina;
+const emailField = document.getElementById('email');
+const button = document.getElementById('button');
+const resultE = document.getElementById('result');
 
-button.addEventListener = ('click', function () {
+//  Agganciamo l'event listner al click del bottone;
+button.addEventListener('click', function () {
+    //Raccolgo il valore dell'input (la mail);
+    const userEmail = emailField.value.trim();
 
-    // prendo la mail data dall'utente
+    // Validiamo (soft)
+    if (!userEmail) {
+        resultE.classList.add('text-danger');
+        resultE.innerText = 'Non hai inserito nessuna mail';
+        return;
+    }
 
-    for (let i = 0; i < emailValid.length; i++) {
-        console.table(emailValid[i]);
+    let isAllowed = false;
 
-        const myMail = mailUser.value;
-        console.log(myMail);
-
-        let result = '';
-        if (myMail = emailValid[0]) {
-            result = 'La registrazione è andata a buon fine';
-            console.log(result);
-
-        } else {
-            result = 'Riprova con un altro indirizzo';
-            console.log(result);
-
+    // Controlliamo se la mail è inserita bene;
+    for (let i = 0; i < allowedEmails.length && !isAllowed; i++) {
+        const currentEmail = allowedEmails[i];
+        if (currentEmail === userEmail) {
+            isAllowed = true;
         }
     }
 
+    resultE.innerText = isAllowed ? 'Benvenuto' : 'Spiacente, non sei autorizzato';
+
 })
 
-// // creo una costante di verifica (array)
-// const emailVerify = emailValid[myEamil]
-// let result = '';
-
-// if (myMail = emailVerify) {
-//     result = "L'email inserita è presente nella lista";
-// } else {
-//     result = "L'email è sbagliata! Riprova!"
-// }
-// console.log(emailVerify)
